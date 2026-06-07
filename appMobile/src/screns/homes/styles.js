@@ -1,166 +1,219 @@
 import { StyleSheet } from "react-native";
 
-
 const styles = StyleSheet.create({
 
-tela:{
-flex:1,
-backgroundColor:"#fff"
+  container: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+  },
+
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#eaeaea",
+    backgroundColor: "#ffffff",
+    elevation: 2,
+  },
+
+  logo: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#d60000",
+  },
+
+  headerIcons: {
+    flexDirection: "row",
+    gap: 15,
+  },
+
+  notificacao: {
+    position: "absolute",
+    top: 50,
+    left: 20,
+    right: 20,
+    backgroundColor: "#d60000",
+    padding: 14,
+    borderRadius: 12,
+    alignItems: "center",
+    zIndex: 10,
+    elevation: 4,
+  },
+
+  notificacaoText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+
+  bannerBox: {
+    marginHorizontal: 20,
+    borderRadius: 15,
+    overflow: "hidden",
+    marginTop: 10,
+  },
+
+  banner: {
+    width: "100%",
+    height: 180,
+    resizeMode: "cover",
+  },
+
+  bannerDots: {
+    position: "absolute",
+    bottom: 10,
+    alignSelf: "center",
+    flexDirection: "row",
+  },
+
+  dotActive: {
+    color: "#d60000",
+    margin: 5,
+    fontSize: 14,
+  },
+
+  dot: {
+    color: "#cfcfcf",
+    margin: 5,
+    fontSize: 14,
+  },
+
+  section: {
+    marginTop: 25,
+    paddingHorizontal: 20,
+  },
+
+  sectionHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 10,
+  },
+
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#222",
+  },
+
+  sectionLink: {
+    color: "#d60000",
+    fontWeight: "600",
+  },
+
+  categories: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 15,
+  },
+
+  categoryItem: {
+    alignItems: "center",
+    flex: 1,
+  },
+
+  categoryText: {
+    marginTop: 5,
+    fontSize: 12,
+    color: "#444",
+  },
+
+  categoryItemWrapper: {
+  flex: 1,
+  alignItems: "center",
 },
 
-container:{
-flex:1
+categoryDivider: {
+  width: 1,
+  height: 40,
+  backgroundColor: "#e6e6e6",
 },
 
-cabecalho:{
-paddingHorizontal:20,
-paddingTop:20,
-paddingBottom:20,
-flexDirection:"row",
-justifyContent:"space-between",
-alignItems:"center",
-borderBottomWidth:2,
-borderBottomColor:"#ddd",
-},
+  card: {
+    width: 170,
+    backgroundColor: "#ffffff",
+    borderRadius: 15,
+    marginRight: 15,
+    padding: 10,
+    elevation: 2,
+    borderWidth: 1,
+    borderColor: "#ffe3e3",
+  },
 
-logo:{
-fontSize:28,
-fontWeight:"bold",
-color:"#d60000"
-},
+  cardImage: {
+    width: "100%",
+    height: 100,
+    borderRadius: 12,
+    resizeMode: "cover",
+  },
 
-icones:{
-flexDirection:"row",
-gap:15
-},
+  cardTitle: {
+    marginTop: 8,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#222",
+  },
 
-bannerBox:{
-marginHorizontal:15,
-borderRadius:25,
-overflow:"hidden",
-backgroundColor:"#eee",
-marginTop:10,
-},
+  cardPrice: {
+    color: "#d60000",
+    marginTop: 5,
+    fontWeight: "600",
+  },
 
-banner:{
-width:"100%",
-height:230
-},
+  offerCard: {
+    backgroundColor: "#fafafa",
+    borderRadius: 15,
+    padding: 12,
+    elevation: 2,
+    borderWidth: 1,
+    borderColor: "#ffe3e3",
+  },
 
-pontos:{
-position:"absolute",
-bottom:10,
-width:"100%",
-flexDirection:"row",
-justifyContent:"center",
-gap:8
-},
+  offerImage: {
+    width: "100%",
+    height: 170,
+    borderRadius: 15,
+    resizeMode: "cover",
+  },
 
-pontoAtivo:{
-color:"#d60000"
-},
+  offerTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginTop: 10,
+    color: "#222",
+  },
 
-secao:{
-marginTop:25,
-paddingHorizontal:18
-},
+  offerPrice: {
+    color: "#d60000",
+    marginTop: 5,
+    fontWeight: "600",
+  },
 
-tituloLinha:{
-flexDirection:"row",
-justifyContent:"space-between",
-alignItems:"center"
-},
+  button: {
+    backgroundColor: "#d60000",
+    margin: 20,
+    padding: 15,
+    borderRadius: 12,
+    alignItems: "center",
+    elevation: 3,
+  },
 
-titulo:{
-fontSize:22,
-fontWeight:"bold"
-},
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
 
-ver:{
-color:"#d60000",
-fontWeight:"bold"
-},
+  footer: {
+    alignItems: "center",
+    padding: 20,
+  },
 
-categorias:{
-marginTop:15,
-flexDirection:"row",
-justifyContent:"space-between"
-},
-
-categoria:{
-width:75,
-height:75,
-backgroundColor:"#fafafa",
-borderRadius:18,
-alignItems:"center",
-justifyContent:"center",
-gap:5,
-shadowColor:"#000",
-shadowOpacity:0.08,
-shadowRadius:5,
-elevation:3
-},
-
-card:{
-width:150,
-backgroundColor:"#fff",
-marginRight:15,
-borderRadius:18,
-padding:10,
-shadowColor:"#000",
-shadowOpacity:0.12,
-shadowRadius:8,
-elevation:4
-},
-
-imgCard:{
-width:"100%",
-height:90,
-borderRadius:15
-},
-
-preco:{
-color:"#d60000",
-fontWeight:"bold"
-},
-
-oferta:{
-backgroundColor:"#fff",
-borderRadius:20,
-padding:12,
-shadowColor:"#000",
-shadowOpacity:0.1,
-shadowRadius:8,
-elevation:4
-},
-
-imgOferta:{
-width:"100%",
-height:170,
-borderRadius:18
-},
-
-nomeOferta:{
-fontSize:20,
-fontWeight:"bold",
-marginTop:10
-},
-
-botao:{
-backgroundColor:"#d60000",
-margin:20,
-padding:16,
-borderRadius:15,
-alignItems:"center"
-},
-
-botaoTexto:{
-color:"#fff",
-fontWeight:"bold",
-fontSize:15
-}
+  footerText: {
+    color: "#777",
+    fontSize: 12,
+  },
 
 });
-
 
 export default styles;

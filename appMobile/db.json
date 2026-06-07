@@ -1,0 +1,49 @@
+{
+  "carros": [
+    {
+      "id": "1",
+      "nome": "City",
+      "preco": "R$ 117.900",
+      "imagem": "https://i.imgur.com/placeholder1.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Civic",
+      "preco": "R$ 146.900",
+      "imagem": "https://i.imgur.com/placeholder2.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "HR-V",
+      "preco": "R$ 151.900",
+      "imagem": "https://i.imgur.com/placeholder3.jpg"
+    },
+    {
+      "id": "4",
+      "nome": "CR-V",
+      "preco": "R$ 214.900",
+      "imagem": "https://i.imgur.com/placeholder4.jpg"
+    },
+    {
+      "id": "5",
+      "nome": "ZR-V",
+      "preco": "R$ 214.500",
+      "imagem": "https://i.imgur.com/placeholder5.jpg"
+    },
+    {
+      "id": "6",
+      "nome": "Accord",
+      "preco": "R$ 332.000",
+      "imagem": "https://i.imgur.com/placeholder6.jpg"
+    }
+  ],
+
+  "motos": [
+    {
+      "id": "1",
+      "nome": "CB 500F",
+      "preco": "R$ 33.900",
+      "imagem": "https://i.imgur.com/placeholder7.jpg"
+    }
+  ]
+}

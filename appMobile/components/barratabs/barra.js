@@ -1,73 +1,61 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { House, Grid2X2, Heart, MapPin, User } from "lucide-react-native";
+import {View,Text,TouchableOpacity} from "react-native";
+import {Car,Bike,Compass,Home,User} from "lucide-react-native";
 
-export default function BarraTabs(){
+import styles from "./styles";
 
-  return(
-    <View style={styles.barra}>
+export default function BarraTabs({navigation}){
 
-      <View style={styles.item}>
-        <House size={22} color="#e10600"/>
-        <Text style={styles.ativo}>Home</Text>
-      </View>
+return(
 
+<View style={styles.container}>
 
-      <View style={styles.item}>
-        <Grid2X2 size={22} color="#555"/>
-        <Text style={styles.texto}>Catálogo</Text>
-      </View>
-
-
-      <View style={styles.item}>
-        <Heart size={22} color="#555"/>
-        <Text style={styles.texto}>Favoritos</Text>
-      </View>
+<TouchableOpacity
+style={styles.item}
+onPress={()=>navigation.navigate("Home")}
+>
+<Home size={22} color="#d60000"/>
+<Text style={styles.text}>Home</Text>
+</TouchableOpacity>
 
 
-      <View style={styles.item}>
-        <MapPin size={22} color="#555"/>
-        <Text style={styles.texto}>Lojas</Text>
-      </View>
+<TouchableOpacity
+style={styles.item}
+onPress={()=>navigation.navigate("Carros")}
+>
+<Car size={22} color="#d60000"/>
+<Text style={styles.text}>Carros</Text>
+</TouchableOpacity>
 
 
-      <View style={styles.item}>
-        <User size={22} color="#555"/>
-        <Text style={styles.texto}>Perfil</Text>
-      </View>
+<TouchableOpacity
+style={styles.item}
+onPress={()=>navigation.navigate("Motos")}
+>
+<Bike size={22} color="#d60000"/>
+<Text style={styles.text}>Motos</Text>
+</TouchableOpacity>
 
 
-    </View>
-  );
+<TouchableOpacity
+style={styles.item}
+onPress={()=>navigation.navigate("Concessionarias")}
+>
+<Compass size={22} color="#d60000"/>
+<Text style={styles.text}>Lojas</Text>
+</TouchableOpacity>
+
+
+<TouchableOpacity
+style={styles.item}
+onPress={()=>navigation.navigate("Perfil")}
+>
+<User size={22} color="#d60000"/>
+<Text style={styles.text}>Perfil</Text>
+</TouchableOpacity>
+
+</View>
+
+);
 
 }
-
-
-const styles = StyleSheet.create({
-
-barra:{
-  height:75,
-  backgroundColor:"#fff",
-  flexDirection:"row",
-  justifyContent:"space-around",
-  alignItems:"center",
-  borderTopWidth:1,
-  borderColor:"#ddd",
-},
-
-item:{
-  alignItems:"center",
-  justifyContent:"center"
-},
-
-texto:{
-  fontSize:11,
-  color:"#555"
-},
-
-ativo:{
-  fontSize:11,
-  color:"#e10600"
-}
-
-});

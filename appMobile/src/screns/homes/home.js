@@ -1,204 +1,193 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity
+} from "react-native";
+
 import { Car, Bike, Compass, Bell, Search } from "lucide-react-native";
 import styles from "./styles";
 
-export default function HomeScreen(){
-return(
-<View style={styles.tela}>
+export default function HomeScreen({ navigation }) {
 
-<ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+  const [notificacao, setNotificacao] = useState("");
 
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setNotificacao("🔥 Novas ofertas Honda disponíveis!");
 
-<View style={styles.cabecalho}>
+      setTimeout(() => {
+        setNotificacao("");
+      }, 3000);
 
-<Text style={styles.logo}>HONDA</Text>
+    }, 15000);
+
+    return () => clearInterval(intervalo);
+  }, []);
 
-<View style={styles.icones}>
-<Search size={24}/>
-<Bell size={24}/>
-</View>
-</View>
-
-<View style={styles.bannerBox}>
-
-<Image
-source={require("../../components/imgs/baner.jpg")}
-style={styles.banner}
-/>
-
-<View style={styles.pontos}>
-<Text style={styles.pontoAtivo}>●</Text>
-<Text>●</Text>
-<Text>●</Text>
-</View>
-</View>
-
-<View style={styles.secao}>
-<View style={styles.tituloLinha}>
-  <Text style={styles.titulo}>
-  Categoria
-  </Text>
-  <Text style={styles.ver}>
-  Ver todas
-  </Text>
-
-</View>
-
-
-
-<View style={styles.categorias}>
-
-<View style={styles.categoria}>
-<Car size={25} color="#d60000"/>
-<Text>Carros</Text>
-</View>
-
-<View style={styles.categoria}>
-<Bike size={25} color="#d60000"/>
-<Text>Motos</Text>
-</View>
-
-<View style={styles.categoria}>
-<Bike size={25} color="#d60000"/>
-<Text>Urbanas</Text>
-</View>
-
-<View style={styles.categoria}>
-<Compass size={25} color="#d60000"/>
-<Text>Adventure</Text>
-</View>
-
-</View>
-
-</View>
-
-
-
-
-<View style={styles.secao}>
-
-<Text style={styles.titulo}>
-Destaques
-</Text>
-
-
-<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-
-
-<View style={styles.card}>
-
-<Image
-source={require("../../components/imgs/baner.jpg")}
-style={styles.imgCard}
-/>
-
-<Text>Civic</Text>
-
-<Text style={styles.preco}>
-R$ 146.900
-</Text>
-
-</View>
-
-
-
-<View style={styles.card}>
-
-<Image
-source={require("../../components/imgs/baner.jpg")}
-style={styles.imgCard}
-/>
-
-<Text>CB 500F</Text>
-
-<Text style={styles.preco}>
-R$ 33.900
-</Text>
-
-</View>
-
-
-
-
-<View style={styles.card}>
-
-<Image
-source={require("../../components/imgs/baner.jpg")}
-style={styles.imgCard}
-/>
-
-<Text>HR-V</Text>
-
-<Text style={styles.preco}>
-R$ 151.900
-</Text>
-
-</View>
-
-
-</ScrollView>
-
-</View>
-
-
-
-
-
-<View style={styles.secao}>
-
-
-<Text style={styles.titulo}>
-Oferta da Semana
-</Text>
-
-
-<View style={styles.oferta}>
-
-
-<Image
-source={require("../../components/imgs/baner.jpg")}
-style={styles.imgOferta}
-/>
-
-
-<Text style={styles.nomeOferta}>
-Honda SUV Premium
-</Text>
-
-
-<Text style={styles.preco}>
-R$ 199.900
-</Text>
-
-
-</View>
-
-
-</View>
-
-
-
-
-
-<TouchableOpacity style={styles.botao}>
-
-<Text style={styles.botaoTexto}>
-SIMULAR CONSÓRCIO
-</Text>
-
-</TouchableOpacity>
-
-
-<View style={{height:80}}/>
-
-
-</ScrollView>
-
-</View>
-);
+  const CategoryItem = ({ icon: Icon, label, route }) => (
+    <TouchableOpacity
+      style={styles.categoryItem}
+      onPress={() => route && navigation.navigate(route)}
+    >
+      <Icon size={26} color="#d60000" />
+      <Text style={styles.categoryText}>{label}</Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={styles.container}>
+
+      {/* NOTIFICAÇÃO */}
+      {notificacao !== "" && (
+        <View style={styles.notificacao}>
+          <Text style={styles.notificacaoText}>
+            {notificacao}
+          </Text>
+        </View>
+      )}
+
+      {/* HEADER */}
+      <View style={styles.header}>
+        <Text style={styles.logo}>HONDA</Text>
+
+        <View style={styles.headerIcons}>
+          <Search size={22} color="#333" />
+          <Bell size={22} color="#333" />
+        </View>
+      </View>
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+
+        {/* BANNER */}
+        <View style={styles.bannerBox}>
+          <Image
+            source={require("../../../components/imgs/baner.jpg")}
+            style={styles.banner}
+          />
+
+          <View style={styles.bannerDots}>
+            <Text style={styles.dotActive}>●</Text>
+            <Text style={styles.dot}>●</Text>
+            <Text style={styles.dot}>●</Text>
+          </View>
+        </View>
+
+        {/* CATEGORIAS */}
+        <View style={styles.section}>
+
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Categorias</Text>
+            <Text style={styles.sectionLink}>Ver todas</Text>
+          </View>
+
+          <View style={styles.categories}>
+
+            <View style={styles.categoryItemWrapper}>
+              <CategoryItem icon={Car} label="Carros" route="Carros" />
+            </View>
+
+            <View style={styles.categoryDivider} />
+
+            <View style={styles.categoryItemWrapper}>
+              <CategoryItem icon={Bike} label="Motos" route="Motos" />
+            </View>
+
+            <View style={styles.categoryDivider} />
+
+            <View style={styles.categoryItemWrapper}>
+              <CategoryItem icon={Bike} label="Urbanas" />
+            </View>
+
+            <View style={styles.categoryDivider} />
+
+            <View style={styles.categoryItemWrapper}>
+              <CategoryItem icon={Compass} label="Adventure" />
+            </View>
+
+          </View>
+
+        </View>
+
+        {/* DESTAQUES */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Destaques</Text>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
+            <View style={styles.card}>
+              <Image
+                source={require("../../../components/imgs/imgsHome/cb500.jpg")}
+                style={styles.cardImage}
+              />
+              <Text style={styles.cardTitle}>CB 500F</Text>
+              <Text style={styles.cardPrice}>R$ 33.900</Text>
+            </View>
+
+            <View style={styles.card}>
+              <Image
+                source={require("../../../components/imgs/imgsHome/cb300.jpg")}
+                style={styles.cardImage}
+              />
+              <Text style={styles.cardTitle}>CB 300R</Text>
+              <Text style={styles.cardPrice}>R$ 27.900</Text>
+            </View>
+
+            <View style={styles.card}>
+              <Image
+                source={require("../../../components/imgs/imgsHome/carro.jpg")}
+                style={styles.cardImage}
+              />
+              <Text style={styles.cardTitle}>HR-V</Text>
+              <Text style={styles.cardPrice}>R$ 151.900</Text>
+            </View>
+
+          </ScrollView>
+        </View>
+
+        {/* OFERTA DA SEMANA */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Oferta da Semana</Text>
+
+          <View style={styles.offerCard}>
+            <Image
+              source={require("../../../components/imgs/imgsHome/carro.jpg")}
+              style={styles.offerImage}
+            />
+
+            <Text style={styles.offerTitle}>
+              Honda Civic Premium
+            </Text>
+
+            <Text style={styles.offerPrice}>
+              R$ 199.900
+            </Text>
+          </View>
+
+        </View>
+
+        {/* BOTÃO */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Consorcio")}
+        >
+          <Text style={styles.buttonText}>
+            SIMULAR CONSÓRCIO
+          </Text>
+        </TouchableOpacity>
+
+        {/* FOOTER */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>
+            © 2026 Honda App • Todos os direitos reservados
+          </Text>
+        </View>
+
+        <View style={{ height: 90 }} />
+
+      </ScrollView>
+    </View>
+  );
 }
-
-
-
-
